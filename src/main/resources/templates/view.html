@@ -1,0 +1,17 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <title>Thread</title>
+    </head>
+    <body>
+        <h1>Thread</h1>
+        <hr>
+        <div th:each="thread : ${threads}">
+            id : <span th:text="${thread.id}"></span><br>
+            name : <span th:text="${thread.name}"></span><br>
+            message : <span th:text="${thread.message}"></span><br>
+            <hr>
+        </div>
+    </body>
+</html>
