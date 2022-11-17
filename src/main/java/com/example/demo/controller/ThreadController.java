@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.entity.ThreadEntity;
+import com.example.demo.form.ThreadForm;
 import com.example.demo.service.ThreadService;
 
 @Controller
@@ -18,5 +19,16 @@ public class ThreadController {
     public ModelAndView view() {
         List<ThreadEntity> threads = threadService.findAll();
         return new ModelAndView("/view").addObject("threads", threads);
+    }
+    @RequestMapping("/create")
+    public String create() {
+        return "create";
+    }
+    @RequestMapping("/insert")
+    public ModelAndView newPost(ThreadForm form) {
+        threadService.insert(form);
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("redirect:/view");
+        return mav;
     }
 }

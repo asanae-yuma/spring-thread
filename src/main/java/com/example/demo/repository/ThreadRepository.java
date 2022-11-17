@@ -17,4 +17,8 @@ public class ThreadRepository {
         return threadJpa.findAll();
     }
 
+    public void insert(ThreadEntity entity) {
+        threadJpa.save(entity);
+    }
+
 }
