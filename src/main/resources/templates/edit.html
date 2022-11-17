@@ -1,0 +1,15 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <title>Edit</title>
+    </head>
+    <body>
+        <h1>Edit</h1>
+        <form method="post" th:object="${thread}">
+            Name : <input type="text" name="name" th:value="*{name}"><br>
+            Message: <input type="text" name="message" th:value="*{message}"><br>
+            <input type="submit" formaction="update" value="Update">
+        </form>
+    </body>
+</html>

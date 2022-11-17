@@ -24,4 +24,8 @@ public class ThreadService {
         entity.setMessage(form.getMessage());
         threadRepository.insert(entity);
     }
+
+    public ThreadEntity getOne(Integer id) {
+        return threadRepository.getOne(id);
+    }
 }

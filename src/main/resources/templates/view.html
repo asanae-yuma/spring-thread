@@ -6,12 +6,16 @@
     </head>
     <body>
         <h1>Thread</h1>
-        <hr>
         <a th:href="@{/create}">New Post</a>
+        <hr>
         <div th:each="thread : ${threads}">
             ID : <span th:text="${thread.id}"></span><br>
             Name : <span th:text="${thread.name}"></span><br>
             Message : <span th:text="${thread.message}"></span><br>
+            <form method="post">
+                <input type="hidden" name="id" th:value="${thread.id}">
+                <input type="submit" value="Edit" formaction="edit">
+            </form>
             <hr>
         </div>
     </body>
