@@ -21,4 +21,8 @@ public class ThreadRepository {
         threadJpa.save(entity);
     }
 
+    public ThreadEntity getOne(Integer id) {
+        return threadJpa.getReferenceById(id);
+    }
+
 }

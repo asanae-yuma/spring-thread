@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.entity.ThreadEntity;
@@ -30,5 +31,9 @@ public class ThreadController {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("redirect:/view");
         return mav;
+    }
+    @RequestMapping("/edit")
+    public ModelAndView edit(@RequestParam("id") Integer id) {
+        return new ModelAndView("/edit").addObject("thread", threadService.getOne(id));
     }
 }
